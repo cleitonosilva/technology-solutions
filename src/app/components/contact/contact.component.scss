@@ -1,0 +1,12 @@
+.home__contact {
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+  }
+
+  &--title {
+    margin-bottom: 1rem;
+  }
+
+}
