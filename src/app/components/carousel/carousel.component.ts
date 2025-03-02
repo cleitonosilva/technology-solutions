@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Slides } from '../../data/slide';
 import { CarouselSlide } from '../../models/slide';
@@ -13,6 +13,7 @@ import { CarouselSlide } from '../../models/slide';
   imports: [CommonModule]
 })
 export class CarouselComponent implements OnInit {
+  @Input() isDarkMode = false;
   slides: CarouselSlide[] = Slides;
 
   ngOnInit(): void {
