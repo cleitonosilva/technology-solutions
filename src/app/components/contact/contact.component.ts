@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.scss'],
   standalone: true
 })
-export class ContactComponent {}
+export class ContactComponent {
+  @Input() isDarkMode = false;
+}
