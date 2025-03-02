@@ -7,6 +7,7 @@ import { ContactComponent } from '../components/contact/contact.component';
 import { CarouselComponent } from '../components/carousel/carousel.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { ScrollTopButtonComponent } from '../components/scroll-top-button/scroll-top-button.component';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ import { HeaderComponent } from '../components/header/header.component';
     CarouselComponent,
     FooterComponent,
     HeaderComponent,
+    ScrollTopButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
