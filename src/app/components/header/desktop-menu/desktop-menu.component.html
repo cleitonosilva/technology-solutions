@@ -1,27 +1,21 @@
-<div
-  class="collapse navbar-collapse d-none d-md-flex justify-content-end ms-3"
-  id="navbarNav"
->
+<div class="collapse navbar-collapse d-none d-md-flex justify-content-end ms-3">
   <ul class="navbar-nav me-3">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/">Home</a>
+      <a class="nav-link" href="#home">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/sobre">Sobre Nós</a>
+      <a class="nav-link" href="#sobre-nos">Sobre Nós</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/vagas">Vagas Abertas</a>
+      <a class="nav-link" href="#vagas-abertas">Vagas Abertas</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/contato">Contato</a>
+      <a class="nav-link" href="#contato">Contato</a>
     </li>
   </ul>
   <div class="d-flex">
-    <button
-      class="btn btn-outline-secondary me-2"
-      (click)="toggleDarkMode.emit()"
-    >
-      {{ isDarkMode ? "Light Mode" : "Dark Mode" }}
+    <button class="btn btn-outline-secondary me-2" (click)="toggleDarkMode.emit()">
+      {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
     </button>
     <button class="btn btn-primary" routerLink="/login">Login</button>
   </div>
