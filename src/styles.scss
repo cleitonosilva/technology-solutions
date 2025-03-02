@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* Tamanho de fonte padrão (desktop) */
+html {
+  font-size: 16px; /* ou 1rem */
+}
+
+/* Reduz a fonte em telas menores que 768px */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* ou 0.875rem */
+  }
+}
