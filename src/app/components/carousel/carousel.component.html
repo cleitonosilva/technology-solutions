@@ -3,46 +3,35 @@
     id="carouselExampleIndicators"
     class="carousel slide home__carousel"
     data-bs-ride="carousel"
+    data-bs-interval="5000"
+    data-bs-pause="false"
+    data-bs-wrap="true"
   >
     <div class="carousel-indicators">
       <button
+        *ngFor="let slide of slides; let i = index"
         type="button"
         data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="0"
-        class="active"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="1"
-      ></button>
-      <button
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide-to="2"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        aria-current="i === 0"
       ></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
+      <div
+        *ngFor="let slide of slides; let i = index"
+        class="carousel-item"
+        [class.active]="i === 0"
+      >
         <img
-          src="https://picsum.photos/1200/400?random=1"
+          [src]="slide.imageUrl"
           class="d-block w-100"
-          alt="Slide 1"
+          [alt]="slide.imageAlt"
         />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://picsum.photos/1200/400?random=2"
-          class="d-block w-100"
-          alt="Slide 2"
-        />
-      </div>
-      <div class="carousel-item">
-        <img
-          src="https://picsum.photos/1200/400?random=3"
-          class="d-block w-100"
-          alt="Slide 3"
-        />
+        <div class="carousel-caption">
+          <h2 class="carousel-title">{{ slide.title }}</h2>
+          <p class="carousel-subtitle">{{ slide.subtitle }}</p>
+        </div>
       </div>
     </div>
     <button
