@@ -5,6 +5,7 @@
   data-bs-target="#mobileOffcanvas"
   aria-controls="mobileOffcanvas"
   aria-label="Toggle navigation"
+  [ngClass]="{'btn-dark': isDarkMode}"
 >
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -14,6 +15,7 @@
   tabindex="-1"
   id="mobileOffcanvas"
   aria-labelledby="mobileOffcanvasLabel"
+  [ngClass]="{'offcanvas-dark': isDarkMode}"
 >
   <div class="offcanvas-header border-bottom">
     <h5 class="offcanvas-title" id="mobileOffcanvasLabel">Menu</h5>
@@ -22,9 +24,10 @@
       class="btn-close text-reset"
       data-bs-dismiss="offcanvas"
       aria-label="Close"
+      [ngClass]="{'btn-close-dark': isDarkMode}"
     ></button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body" [ngClass]="{'offcanvas-body-dark': isDarkMode}">
     <ul class="navbar-nav mobile-nav">
       <li class="nav-item">
         <a class="nav-link" href="#home" data-bs-dismiss="offcanvas">

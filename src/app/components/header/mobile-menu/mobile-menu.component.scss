@@ -60,3 +60,27 @@
     }
   }
 }
+
+.offcanvas-dark {
+  background-color: #eff1eb72 !important;
+  color: #fff !important;
+
+  .navbar-toggler-icon {
+    filter: invert(1);
+  }
+}
+
+.btn-dark {
+  background-color: #eff1eb7a !important;
+}
+
+.offcanvas-body-dark {
+  background-color: #222 !important;
+  color: #fff !important;
+
+  .nav-link {
+    color: #fff !important;
+  }
+}
+
+
