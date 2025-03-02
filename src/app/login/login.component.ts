@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CpfMaskDirective } from '../decorators/cpf-mask.directive';
 import { PasswordStrengthDirective } from '../decorators/password-strength.directive';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private authService: AuthService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -60,7 +62,6 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
@@ -71,10 +72,19 @@ export class LoginComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
+    // Realiza o login utilizando o AuthService
+    const { cpf, password } = this.loginForm.value;
+    const loginSuccess = this.authService.login(cpf, password);
+
     if (isPlatformBrowser(this.platformId)) {
       if (this.toast) {
         this.toast.show();
       }
+    }
+
+    if (loginSuccess) {
+      // Redireciona para o dashboard após o login bem-sucedido
+      this.router.navigate(['/dashboard']);
     }
   }
 }
