@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -17,6 +17,8 @@ import { OpenPositionsService } from '../../services/open-positions.service';
   imports: [CommonModule, ReactiveFormsModule],
 })
 export class OpenPositionsComponent implements OnInit {
+  @Input() isDarkMode = false;
+
   positions: Position[] = [];
   isCollapsed: { [id: number]: boolean } = {};
   showCandidateForm: { [id: number]: boolean } = {};
