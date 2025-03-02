@@ -1,0 +1,153 @@
+.login {
+  display: flex;
+  min-height: 100vh;
+
+  &__left, &__right {
+    flex: 1;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f8f8f8;
+  }
+
+  &__mobile-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+
+  &__company-name {
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2c3e50;
+    font-weight: 700;
+  }
+
+  &__form {
+    max-width: 380px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__right {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.input-group {
+  .btn-outline-secondary {
+    border-color: #ced4da;
+    color: #6c757d;
+
+    &:hover {
+      background-color: #f8f9fa;
+      color: #495057;
+    }
+  }
+}
+
+.link-secondary {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #2980b9;
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 768px) {
+  .login {
+    flex-direction: column;
+    background-color: #f8f8f8;
+
+    &__left {
+      width: 100%;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    &__right {
+      display: none;
+    }
+
+    &__mobile-logo {
+      display: block;
+      animation: fadeInDown 0.5s ease;
+    }
+
+    &__company-name {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &__form {
+      max-width: 100%;
+      animation: fadeInUp 0.5s ease;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .login {
+    &__left {
+      padding: 1.5rem 1rem;
+    }
+
+    &__mobile-logo img {
+      max-width: 170px;
+    }
+
+    &__company-name {
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

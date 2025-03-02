@@ -1,0 +1,131 @@
+<div class="login">
+  <div class="login__left">
+    <div class="login__mobile-logo">
+      <img
+        src="https://technologysolution.ca/wp-content/themes/stream-infotech/images/logo.png"
+        alt="Logo TechnologySolutions"
+      />
+    </div>
+
+    <h2 class="login__company-name">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login__form">
+      <div class="mb-3">
+        <label for="cpf" class="form-label">CPF</label>
+        <input
+          type="text"
+          id="cpf"
+          class="form-control"
+          formControlName="cpf"
+          placeholder="000.000.000-00"
+          appCpfMask
+        />
+        <div
+          *ngIf="loginForm.get('cpf')?.touched && loginForm.get('cpf')?.invalid"
+          class="text-danger"
+        >
+          CPF inválido
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha</label>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            class="form-control"
+            formControlName="password"
+            placeholder="Sua senha"
+            appPasswordStrength
+          />
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            (click)="togglePassword()"
+          >
+            <i
+              class="bi"
+              [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"
+            ></i>
+          </button>
+        </div>
+        <small class="text-muted">
+          Mínimo 8 caracteres, incluindo maiúsculas, minúsculas, números e
+          caracteres especiais.
+        </small>
+        <div
+          *ngIf="
+            loginForm.get('password')?.touched &&
+            loginForm.get('password')?.invalid
+          "
+          class="text-danger"
+        >
+          <div *ngIf="loginForm.get('password')?.errors?.['passwordStrength']">
+            A senha deve conter:
+            <ul>
+              <li
+                *ngIf="loginForm.get('password')?.errors?.['passwordStrength'].requiredLength"
+              >
+                No mínimo 8 caracteres.
+              </li>
+              <li
+                *ngIf="loginForm.get('password')?.errors?.['passwordStrength'].uppercase"
+              >
+                Uma letra maiúscula.
+              </li>
+              <li
+                *ngIf="loginForm.get('password')?.errors?.['passwordStrength'].lowercase"
+              >
+                Uma letra minúscula.
+              </li>
+              <li
+                *ngIf="loginForm.get('password')?.errors?.['passwordStrength'].numeric"
+              >
+                Um número.
+              </li>
+              <li
+                *ngIf="loginForm.get('password')?.errors?.['passwordStrength'].specialChar"
+              >
+                Um caractere especial.
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="loginForm.get('password')?.errors?.['required']">
+            Senha é obrigatória.
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn-ts btn-ts--block"
+        [disabled]="loginForm.invalid"
+      >
+        <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+      </button>
+
+      <div class="mt-3 text-center">
+        <a routerLink="/esqueci-minha-senha" class="link-secondary"
+          >Esqueci minha senha</a
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="login__right">
+    <img
+      src="https://images.pexels.com/photos/7689884/pexels-photo-7689884.jpeg"
+      alt="Ilustração de Login"
+    />
+  </div>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div #successToast class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <small>Agora</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">Login efetuado com sucesso!</div>
+  </div>
+</div>
+
