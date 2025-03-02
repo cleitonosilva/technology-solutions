@@ -18,7 +18,7 @@
             <td>{{ pos.level }}</td>
             <td class="text-end">
               <button
-                class="btn btn-sm "
+                class="btn btn-sm"
                 (click)="toggleCollapse(pos.id)"
               >
                 <i
@@ -34,92 +34,105 @@
 
           <tr *ngIf="isCollapsed[pos.id]">
             <td colspan="4">
-              <p class="mb-2">
-                <strong>Descrição:</strong>
-                {{ pos.description }}
-              </p>
-              <div class="text-end">
-                <button
-                  class="btn btn-sm btn-success"
-                  (click)="toggleCandidateForm(pos.id)"
-                >
-                  {{
-                    showCandidateForm[pos.id]
-                      ? "Cancelar"
-                      : "Candidatar"
-                  }}
-                </button>
-              </div>
+              <div class="position-details">
+                <h4 class="position-title">{{ pos.title }}</h4>
 
-              <div
-                *ngIf="showCandidateForm[pos.id]"
-                class="candidate-form mt-3"
-              >
-                <form
-                  [formGroup]="candidateForm"
-                  (ngSubmit)="submitForm(pos.id)"
-                >
-                  <div class="mb-3">
-                    <label for="fullName" class="form-label"
-                      >Nome Completo</label
-                    >
-                    <input
-                      id="fullName"
-                      type="text"
-                      class="form-control"
-                      formControlName="fullName"
-                    />
-                    <div
-                      *ngIf="
-                        candidateForm.get('fullName')?.invalid &&
-                        candidateForm.get('fullName')?.touched
-                      "
-                      class="text-danger"
-                    >
-                      Nome é obrigatório
-                    </div>
-                  </div>
+                <div class="position-description">
+                  <p>{{ getPositionDescription(pos.description) }}</p>
+                </div>
 
-                  <div class="mb-3">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input
-                      id="email"
-                      type="email"
-                      class="form-control"
-                      formControlName="email"
-                    />
-                    <div
-                      *ngIf="
-                        candidateForm.get('email')?.invalid &&
-                        candidateForm.get('email')?.touched
-                      "
-                      class="text-danger"
-                    >
-                      E-mail inválido
-                    </div>
-                  </div>
+                <div class="position-requirements" *ngIf="hasRequirements(pos)">
+                  <h5>Requisitos:</h5>
+                  <ul>
+                    <li *ngFor="let req of pos.requirements">
+                      {{ req }}
+                    </li>
+                  </ul>
+                </div>
 
-                  <div class="mb-3">
-                    <label for="resume" class="form-label"
-                      >Currículo (PDF)</label
-                    >
-                    <input
-                      id="resume"
-                      type="file"
-                      accept=".pdf"
-                      class="form-control"
-                      (change)="onFileSelected($event)"
-                    />
-                  </div>
-
+                <div class="text-end">
                   <button
-                    type="submit"
-                    class="btn btn-primary"
-                    [disabled]="candidateForm.invalid"
+                    class="btn-ts btn-ts--sm me-2"
+                    (click)="toggleCandidateForm(pos.id)"
                   >
-                    Enviar Candidatura
+                    {{
+                      showCandidateForm[pos.id]
+                        ? "Cancelar"
+                        : "Candidatar"
+                    }}
                   </button>
-                </form>
+                </div>
+
+                <div
+                  *ngIf="showCandidateForm[pos.id]"
+                  class="candidate-form mt-3"
+                >
+                  <form
+                    [formGroup]="candidateForm"
+                    (ngSubmit)="submitForm(pos.id)"
+                  >
+                    <div class="mb-3">
+                      <label for="fullName" class="form-label"
+                        >Nome Completo</label
+                      >
+                      <input
+                        id="fullName"
+                        type="text"
+                        class="form-control"
+                        formControlName="fullName"
+                      />
+                      <div
+                        *ngIf="
+                          candidateForm.get('fullName')?.invalid &&
+                          candidateForm.get('fullName')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        Nome é obrigatório
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="email" class="form-label">E-mail</label>
+                      <input
+                        id="email"
+                        type="email"
+                        class="form-control"
+                        formControlName="email"
+                      />
+                      <div
+                        *ngIf="
+                          candidateForm.get('email')?.invalid &&
+                          candidateForm.get('email')?.touched
+                        "
+                        class="text-danger"
+                      >
+                        E-mail inválido
+                      </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="resume" class="form-label"
+                        >Currículo (PDF)</label
+                      >
+                      <input
+                        id="resume"
+                        type="file"
+                        accept=".pdf"
+                        class="form-control"
+                        (change)="onFileSelected($event)"
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="btn-ts btn-ts--sm me-2"
+                      [disabled]="candidateForm.invalid"
+                    >
+                      Enviar Candidatura
+                    </button>
+                  </form>
+                </div>
               </div>
             </td>
           </tr>

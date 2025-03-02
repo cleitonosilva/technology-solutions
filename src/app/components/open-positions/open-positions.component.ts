@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Position } from '../../models/position';
 import { OpenPositionsService } from '../../services/open-positions.service';
@@ -9,7 +14,7 @@ import { OpenPositionsService } from '../../services/open-positions.service';
   templateUrl: './open-positions.component.html',
   styleUrls: ['./open-positions.component.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class OpenPositionsComponent implements OnInit {
   positions: Position[] = [];
@@ -25,7 +30,10 @@ export class OpenPositionsComponent implements OnInit {
   ngOnInit(): void {
     this.positions = this.positionsService.getPositions();
 
-    this.positions.forEach(pos => {
+    this.positions.forEach((pos) => {
+      if (!pos.requirements) {
+        pos.requirements = this.extractRequirements(pos.description);
+      }
       this.isCollapsed[pos.id] = false;
       this.showCandidateForm[pos.id] = false;
     });
@@ -33,7 +41,7 @@ export class OpenPositionsComponent implements OnInit {
     this.candidateForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      resume: [null]
+      resume: [null],
     });
   }
 
@@ -59,5 +67,81 @@ export class OpenPositionsComponent implements OnInit {
       this.showCandidateForm[positionId] = false;
       alert('Candidatura enviada com sucesso!');
     }
+  }
+
+  getPositionDescription(fullDescription: string): string {
+    if (!fullDescription) return '';
+
+    if (fullDescription.includes('Requisitos:')) {
+      return fullDescription.split('Requisitos:')[0].trim();
+    }
+
+    const reqPatterns = [
+      'requisitos:',
+      'necessário:',
+      'experiência em:',
+      'conhecimento em:',
+    ];
+
+    for (const pattern of reqPatterns) {
+      if (fullDescription.toLowerCase().includes(pattern)) {
+        return fullDescription.split(new RegExp(pattern, 'i'))[0].trim();
+      }
+    }
+
+    return fullDescription;
+  }
+
+  hasRequirements(position: Position): boolean {
+    return (
+      position.requirements !== undefined && position.requirements.length > 0
+    );
+  }
+
+  private extractRequirements(description: string): string[] {
+    if (!description) return [];
+
+    let reqSection = '';
+
+    if (description.includes('Requisitos:')) {
+      reqSection = description.split('Requisitos:')[1].trim();
+    } else {
+      const reqPatterns = [
+        'requisitos:',
+        'necessário:',
+        'experiência em:',
+        'conhecimento em:',
+      ];
+
+      for (const pattern of reqPatterns) {
+        if (description.toLowerCase().includes(pattern)) {
+          reqSection = description.split(new RegExp(pattern, 'i'))[1].trim();
+          break;
+        }
+      }
+    }
+
+    if (!reqSection) return [];
+    let reqItems: string[] = [];
+    if (reqSection.includes(',')) {
+      reqItems = reqSection.split(',').map((item) => item.trim());
+    } else if (reqSection.includes('.')) {
+      reqItems = reqSection
+        .split('.')
+        .filter((item) => item.trim().length > 0)
+        .map((item) => item.trim());
+    } else if (reqSection.includes('-')) {
+      reqItems = reqSection
+        .split('-')
+        .filter((item) => item.trim().length > 0)
+        .map((item) => item.trim());
+    } else {
+      reqItems = reqSection
+        .split(/[.;]/)
+        .filter((item) => item.trim().length > 5)
+        .map((item) => item.trim());
+    }
+
+    return reqItems.filter((item) => item.length > 0);
   }
 }

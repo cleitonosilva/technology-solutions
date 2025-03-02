@@ -4,4 +4,5 @@ export interface Position {
   location: string;
   level: string;
   description: string;
+  requirements?: string[];
 }
