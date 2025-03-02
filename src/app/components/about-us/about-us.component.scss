@@ -243,3 +243,50 @@
     }
   }
 }
+
+.bg-dark {
+  p {
+    color: #fff;
+  }
+  h2 {
+    color: #eb4343;
+  }
+  h3 {
+    color: #c86d6d;
+  }
+  li {
+    color: #fff;
+  }
+  a {
+    color: #fff;
+  }
+  span {
+    color: #d23131;
+  }
+}
+
+.bg-dark-cards {
+  article {
+    background-color: #143556;
+    color: #fff;
+  }
+  h4 {
+    color: #eb4343;
+  }
+  p {
+    color: #fff;
+  }
+}
+
+.caption-dark {
+  color: #fff;
+  background-color: #143556;
+}
+
+.bg-dark-stats {
+  background-color: #143556;
+
+  span {
+    color: #fff;
+  }
+}

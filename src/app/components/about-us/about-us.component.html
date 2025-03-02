@@ -1,4 +1,4 @@
-<section class="home__section home__about bg-light" aria-labelledby="about-heading">
+<section class="home__section home__about bg-light" aria-labelledby="about-heading" [ngClass]="{'bg-dark': isDarkMode}">
   <div class="container">
     <h2 id="about-heading" class="home__about--title">Sobre Nós</h2>
 
@@ -8,7 +8,7 @@
 
     <figure class="home__about--figure">
       <img src="https://images.pexels.com/photos/2566581/pexels-photo-2566581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Equipe da TechnologySolutions colaborando em um ambiente moderno de trabalho" class="home__about--image" width="800" height="400">
-      <figcaption class="home__about--caption">Nossa equipe em ação durante um workshop de inovação</figcaption>
+      <figcaption [ngClass]="{'caption-dark': isDarkMode}" class="home__about--caption">Nossa equipe em ação durante um workshop de inovação</figcaption>
     </figure>
 
     <h3 id="mission-heading" class="home__about--subtitle">Nossa Missão</h3>
@@ -43,7 +43,7 @@
       Especializamo-nos em desenvolvimento de software, inteligência artificial, análise de dados e transformação digital. Nossa abordagem integrada permite que entreguemos soluções completas, desde a concepção até a implementação e suporte contínuo.
     </p>
 
-    <div class="home__about--expertise-grid" aria-labelledby="expertise-heading">
+    <div class="home__about--expertise-grid" aria-labelledby="expertise-heading" [ngClass]="{'bg-dark-cards': isDarkMode}">
       <article class="home__about--expertise-card">
         <h4 class="home__about--expertise-title">Desenvolvimento de Software</h4>
         <p class="home__about--expertise-text">Criamos aplicações web, mobile e sistemas corporativos personalizados utilizando as mais recentes tecnologias e metodologias ágeis.</p>
@@ -70,7 +70,7 @@
       Nossa abordagem inclusiva contempla diretrizes WCAG (Web Content Accessibility Guidelines) nível AA, garantindo que todos os usuários, independentemente de suas limitações, possam utilizar nossas soluções de forma eficaz e satisfatória.
     </p>
 
-    <div class="home__about--stats" aria-labelledby="about-heading">
+    <div class="home__about--stats" aria-labelledby="about-heading" [ngClass]="{'bg-dark-stats': isDarkMode}">
       <div class="home__about--stat-item">
         <span class="home__about--stat-number" aria-label="Mais de 200 projetos concluídos">200+</span>
         <span class="home__about--stat-label">Projetos concluídos</span>
