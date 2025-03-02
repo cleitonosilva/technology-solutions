@@ -1,0 +1,30 @@
+.header {
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    /* breakpoints de padding lateral, etc. */
+    @media (min-width: 992px) {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @media (max-width: 991.98px) and (min-width: 768px) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    @media (max-width: 767.98px) {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+
+}
+
+/* Logo sem inline style */
+.home__header--logo {
+  max-height: 50px;
+}
