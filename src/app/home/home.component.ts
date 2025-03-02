@@ -29,7 +29,8 @@ import { ScrollTopButtonComponent } from '../components/scroll-top-button/scroll
 export class HomeComponent {
   isDarkMode = false;
 
-  toggleDarkMode(): void {
+  toggleDarkMode(event: Event): void {
     this.isDarkMode = !this.isDarkMode;
+    console.log('toggleDarkMode', this.isDarkMode);
   }
 }

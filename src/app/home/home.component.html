@@ -1,21 +1,27 @@
 <div class="home" [ngClass]="{'home--dark-mode': isDarkMode}">
-  <app-header [isDarkMode]="isDarkMode" (toggleDarkMode)="toggleDarkMode()"></app-header>
+  <app-header
+  [isDarkMode]="isDarkMode"
+  (toggleDarkMode)="toggleDarkMode($event)"></app-header>
 
   <main class="home__main">
     <section id="home">
-      <app-carousel></app-carousel>
+      <app-carousel
+      [isDarkMode]="isDarkMode"></app-carousel>
     </section>
 
     <section id="sobre-nos">
-      <app-about-us></app-about-us>
+      <app-about-us
+      [isDarkMode]="isDarkMode"></app-about-us>
     </section>
 
     <section id="vagas-abertas">
-      <app-open-positions></app-open-positions>
+      <app-open-positions
+      [isDarkMode]="isDarkMode"></app-open-positions>
     </section>
 
     <section id="contato">
-      <app-contact></app-contact>
+      <app-contact
+      [isDarkMode]="isDarkMode"></app-contact>
     </section>
   </main>
 
