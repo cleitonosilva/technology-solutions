@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent {
-  @Input() isDarkMode: boolean = false;
-  @Output() toggleDarkMode = new EventEmitter<void>();
+
 }

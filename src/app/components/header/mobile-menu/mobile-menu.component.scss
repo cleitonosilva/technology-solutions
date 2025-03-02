@@ -1,0 +1,62 @@
+.navbar-toggler {
+  padding: 0.4rem;
+  border: none;
+  margin-left: 0.5rem;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.offcanvas {
+  width: 280px;
+
+  .offcanvas-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .offcanvas-body {
+    padding: 1.5rem;
+  }
+
+  .mobile-nav {
+    .nav-item {
+      margin-bottom: 0.5rem;
+
+      .nav-link {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+
+        &:hover, &:focus {
+          background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        i {
+          width: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+:host-context(.dark-theme) {
+  .offcanvas {
+    background-color: #222;
+    color: #fff;
+
+    .offcanvas-header {
+      border-bottom-color: #444;
+    }
+
+    .mobile-nav .nav-link {
+      color: #eee;
+
+      &:hover, &:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}
