@@ -22,5 +22,6 @@ export class HeaderComponent {
 
   onToggleDarkMode(): void {
     this.darkModeToggle.emit();
+    this.isDarkMode = !this.isDarkMode;
   }
 }

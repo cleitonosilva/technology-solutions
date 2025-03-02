@@ -1,7 +1,7 @@
 <header class="header w-100 bg-light fixed-top">
-  <nav class="navbar navbar-expand-md navbar-light">
-    <div class="header__inner d-flex justify-content-between align-items-center">
-      <div class="header__logo">
+  <nav class="navbar navbar-expand-md navbar-light px-2">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center w-100">
         <a class="navbar-brand" href="#home">
           <img
             src="https://technologysolution.ca/wp-content/themes/stream-infotech/images/logo.png"
@@ -9,10 +9,22 @@
             class="home__header--logo"
           />
         </a>
-      </div>
-      <div class="header__menu d-flex align-items-center">
-        <app-desktop-menu [isDarkMode]="isDarkMode" (toggleDarkMode)="onToggleDarkMode()"></app-desktop-menu>
-        <app-mobile-menu [isDarkMode]="isDarkMode" (toggleDarkMode)="onToggleDarkMode()"></app-mobile-menu>
+
+        <div class="d-flex align-items-center header-controls">
+
+
+          <div
+            class="dark-mode-icon"
+            (click)="onToggleDarkMode()"
+            [title]="isDarkMode ? 'Mudar para Light Mode' : 'Mudar para Dark Mode'"
+          >
+            <i class="bi" [ngClass]="isDarkMode ? 'bi bi-moon-stars' : 'bi bi-moon-stars-fill'"></i>
+          </div>
+          <app-desktop-menu class="d-none d-md-block header-desktop-menu"></app-desktop-menu>
+
+          <app-mobile-menu class="d-md-none ms-2"></app-mobile-menu>
+
+        </div>
       </div>
     </div>
   </nav>
