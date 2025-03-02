@@ -1,0 +1,17 @@
+<div class="home" [ngClass]="{'home--dark-mode': isDarkMode}">
+  <div class="home" [ngClass]="{'home--dark-mode': isDarkMode}">
+    <app-header
+      [isDarkMode]="isDarkMode"
+      (darkModeToggle)="toggleDarkMode()"
+    ></app-header>
+  </div>
+
+
+  <main>
+    <app-carousel></app-carousel>
+    <app-about-us></app-about-us>
+    <app-open-positions></app-open-positions>
+    <app-contact></app-contact>
+  </main>
+  <app-footer></app-footer>
+</div>
