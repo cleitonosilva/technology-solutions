@@ -1,5 +1,8 @@
 # Technology Solutions
 
+O projeto está deployado e pode ser acessado através do endereço:
+https://technology-solutions-one.vercel.app/
+
 Este repositório contém um projeto **Angular** (usando **Angular CLI 19**) que demonstra a implementação de uma **página inicial moderna** e um **sistema de autenticação completo**. O projeto inclui uma home page responsiva com modo escuro, menu mobile, e uma página de login robusta com funcionalidades de validação e segurança.
 
 - **Formulário Reativo** (Reactive Forms)
@@ -9,7 +12,10 @@ Este repositório contém um projeto **Angular** (usando **Angular CLI 19**) que
 - **Stand-alone Components** (um recurso introduzido no Angular 14 e aprimorado no Angular 19)
 
 > **Observação:**  
-> Este README documenta somente a parte de **Login** do projeto. A área do dashboard ainda não foi implementada.
+> Este README documenta somente a parte de **Login**  e **Home Pública com Repositório de vagas** do projeto. A área logada ainda não foi implementada .
+
+
+
 
 ---
 
@@ -163,6 +169,14 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## Contato
 
-Cleiton Silva - [LinkedIn](https://www.linkedin.com/in/cleiton-silva-44a2b01a3/)
+Cleiton Silva - [LinkedIn](https://www.linkedin.com/in/cleiton-oliveira-8637b983/)
+Contato - [WhatsApp](https://api.whatsapp.com/send/?phone=5521964099980&text&type=phone_number&app_absent=0)
 
 Link do Projeto: [https://github.com/cleitonosilva/technology-solutions](https://github.com/cleitonosilva/technology-solutions)
+
+
+## Screenshots
+
+![Technology Solutions](./src/app/assets/images/technology-solutions.png)
+
+
