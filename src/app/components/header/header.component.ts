@@ -18,10 +18,10 @@ import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 })
 export class HeaderComponent {
   @Input() isDarkMode = false;
-  @Output() darkModeToggle = new EventEmitter<void>();
+  @Output() toggleDarkMode = new EventEmitter<any>();
 
   onToggleDarkMode(): void {
-    this.darkModeToggle.emit();
     this.isDarkMode = !this.isDarkMode;
+    this.toggleDarkMode.emit(this.isDarkMode);
   }
 }
