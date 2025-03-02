@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,5 +10,11 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, RouterModule],
 })
 export class DesktopMenuComponent {
+
+  @Input() isDarkMode: boolean = false;
+
+  constructor() {
+    console.log('isDarkMode', this.isDarkMode);
+  }
 
 }
