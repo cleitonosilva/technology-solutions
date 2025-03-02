@@ -1,0 +1,35 @@
+@import 'variables';
+
+.btn-ts {
+  @include button-styles;
+
+  &--sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  &--lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  &--secondary {
+    @include button-secondary-styles;
+  }
+
+  &--dark {
+    @include button-dark-styles;
+  }
+
+  &--disabled,
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
