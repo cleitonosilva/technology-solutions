@@ -1,60 +1,168 @@
-# TechnologySolutions
+# Technology Solutions
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Este repositório contém um projeto **Angular** (usando **Angular CLI 19**) que demonstra a implementação de uma **página inicial moderna** e um **sistema de autenticação completo**. O projeto inclui uma home page responsiva com modo escuro, menu mobile, e uma página de login robusta com funcionalidades de validação e segurança.
 
-## Development server
+- **Formulário Reativo** (Reactive Forms)
+- **Máscara de CPF** (via diretiva customizada)
+- **Validação de Força de Senha** (via diretiva customizada)
+- **Toast de Sucesso** (usando Bootstrap)
+- **Stand-alone Components** (um recurso introduzido no Angular 14 e aprimorado no Angular 19)
 
-To start a local development server, run:
+> **Observação:**  
+> Este README documenta somente a parte de **Login** do projeto. A área do dashboard ainda não foi implementada.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Sumário
 
-## Code scaffolding
+- [Requisitos de Ambiente](#requisitos-de-ambiente)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação](#instalação)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Funcionalidades Principais](#funcionalidades-principais)
+- [Observações sobre Stand-alone Components](#observações-sobre-stand-alone-components)
+- [Contribuindo](#contribuindo)
+- [Licença](#licença)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Requisitos de Ambiente
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Node.js:** versão `18.20.2` (definida no arquivo [`.nvmrc`](.nvmrc)).
+  - Se você utiliza o [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm), execute:
+    ```bash
+    nvm use
+    ```
+    Caso essa versão ainda não esteja instalada:
+    ```bash
+    nvm install 18.20.2
+    nvm use 18.20.2
+    ```
+- **npm:** versão 9 ou superior.
+- **Angular CLI:** versão 19 (recomendado instalar globalmente ou utilizar via `npx`).
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## Tecnologias Utilizadas
 
-To build the project run:
+- **Angular 19** (com suporte a stand-alone components)
+- **Angular CLI 19**
+- **Bootstrap 5** (para estilização e componentes como o toast)
+- **Bootstrap Icons** (para ícones, por exemplo, o ícone de olho/ocultar senha)
+- **RxJS** (para reatividade e gerenciamento de assinaturas)
+- **Diretivas Customizadas:**
+  - `CpfMaskDirective`: Aplica máscara ao campo de CPF.
+  - `PasswordStrengthDirective`: Valida a força da senha.
+- **TypeScript** (linguagem principal do Angular)
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Instalação
 
-## Running unit tests
+1. **Clonar o repositório:**
+   ```bash
+   git clone https://github.com/cleitonosilva/technology-solutions
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+   cd technology-solutions
+   ```
 
-```bash
-ng test
-```
+2. **Instalar as dependências:**
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
+3. **Iniciar o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   ```
+   O aplicativo estará disponível em `http://localhost:4200`
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Scripts Disponíveis
 
-## Additional Resources
+- `npm start`: Inicia o servidor de desenvolvimento
+- `npm run build`: Gera build de produção
+- `npm test`: Executa os testes unitários
+- `npm run lint`: Executa o linter para verificar qualidade do código
+- `npm run e2e`: Executa os testes end-to-end
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# technology-solutions
+---
+
+## Funcionalidades Principais
+
+- **Autenticação de Usuário:**
+  - Login com CPF e senha
+  - Validação de força de senha
+  - Máscara para campo de CPF
+  - Feedback visual de erros
+
+- **Dark/Light Mode:**
+  - Alternância entre temas claro e escuro
+  - Persistência da preferência do usuário
+  - Estilização adaptativa dos componentes
+
+- **Layout Responsivo:**
+  - Design adaptável para diferentes dispositivos
+  - Menu mobile para telas menores
+  - Grid system do Bootstrap
+
+- **Validações de Formulário:**
+  - Feedback em tempo real
+  - Mensagens de erro personalizadas
+  - Indicadores visuais de status
+
+- **Gerenciamento de Estado:**
+  - Controle reativo de dados
+  - Compartilhamento de estado entre componentes
+  - Persistência de dados do usuário
+
+---
+
+## Boas Práticas Implementadas
+
+- **Clean Code:**
+  - Nomenclatura clara e significativa
+  - Funções pequenas e focadas
+  - Separação de responsabilidades
+
+- **Componentização:**
+  - Componentes reutilizáveis
+  - Comunicação via @Input/@Output
+  - Lazy loading de módulos
+
+- **Segurança:**
+  - Sanitização de inputs
+  - Guards para rotas protegidas
+  - Interceptors para tokens
+
+- **Performance:**
+  - Lazy loading de imagens
+  - Minificação de assets
+  - Otimização de bundle
+
+---
+
+## Contribuição
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+---
+
+## Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## Contato
+
+Cleiton Silva - [LinkedIn](https://www.linkedin.com/in/cleiton-silva-44a2b01a3/)
+
+Link do Projeto: [https://github.com/cleitonosilva/technology-solutions](https://github.com/cleitonosilva/technology-solutions)
