@@ -1,36 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Position } from '../models/position';
-
+import { Positions } from '../data/positions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OpenPositionsService {
-  private positions: Position[] = [
-    {
-      id: 1,
-      title: 'Desenvolvedor Frontend Angular',
-      location: 'Remoto',
-      level: 'Pleno',
-      description: 'Responsável por criar interfaces e componentes em Angular...'
-    },
-    {
-      id: 2,
-      title: 'DevOps Engineer',
-      location: 'Híbrido - São Paulo',
-      level: 'Sênior',
-      description: 'Implementar pipelines de CI/CD, gerenciar infra na nuvem...'
-    },
-    {
-      id: 3,
-      title: 'UX/UI Designer',
-      location: 'Remoto',
-      level: 'Júnior',
-      description: 'Criação de wireframes, protótipos e fluxos de usuário...'
-    }
-  ];
+  private positions: Position[] = Positions;
 
-  constructor() {}
+  constructor() { }
 
   getPositions(): Position[] {
     return this.positions;
