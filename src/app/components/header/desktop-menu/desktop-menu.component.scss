@@ -1,0 +1,82 @@
+:host {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+
+    .nav-item {
+      margin: 0 0.5rem;
+
+      .nav-link {
+        font-weight: 500;
+        transition: color 0.2s ease;
+        position: relative;
+        padding: 0.5rem 0;
+
+        &:hover, &:focus {
+          color: #3498db;
+        }
+
+        &.active {
+          color: #3498db;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #3498db;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px)  {
+  :host {
+    margin-left: 0.5rem;
+
+    .navbar-nav {
+      .nav-item {
+        margin: 0 0.25rem;
+
+        .nav-link {
+          font-size: 0.9rem;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .btn-ts {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.75rem;
+      white-space: nowrap;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+@media (min-width: 781px) {
+  :host {
+    .navbar-nav {
+      .nav-item {
+        margin: 0 0.75rem;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  :host {
+    .navbar-nav {
+      .nav-item {
+        margin: 0 0.75rem;
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<div class="collapse navbar-collapse d-none d-md-flex justify-content-end ms-3">
+<div class="collapse navbar-collapse d-flex">
   <ul class="navbar-nav me-3">
     <li class="nav-item">
       <a class="nav-link" href="#home">Home</a>
@@ -13,10 +13,8 @@
       <a class="nav-link" href="#contato">Contato</a>
     </li>
   </ul>
-  <div class="d-flex">
-    <button class="btn btn-outline-secondary me-2" (click)="toggleDarkMode.emit()">
-      {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
-    </button>
-    <button class="btn btn-primary" routerLink="/login">Login</button>
-  </div>
+
+  <button class="btn-ts ms-2" routerLink="/login">
+    <i class="bi bi-box-arrow-in-right me-1"></i> Login
+  </button>
 </div>
